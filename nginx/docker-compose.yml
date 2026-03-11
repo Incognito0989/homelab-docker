@@ -12,8 +12,8 @@ services:
       - "443:443"
 
     volumes:
-      - C:/docker/nginx/data:/data
-      - C:/docker/nginx/letsencrypt:/etc/letsencrypt
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
 
     environment:
       NODE_ENV: production

@@ -16,8 +16,8 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
 
     volumes:
-      - C:/docker/jellyfin/config:/config
-      - C:/docker/jellyfin/cache:/cache
+      - ./jellyfin/config:/config
+      - ./jellyfin/cache:/cache
       - E:/Media/TV:/series
       - G:/Media/Anime:/anime
       - D:/Music:/music
