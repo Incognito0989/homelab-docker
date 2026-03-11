@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  nginx-proxy-manager:
+    image: jc21/nginx-proxy-manager:latest
+    container_name: nginx_proxy_manager
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "81:81"
+      - "443:443"
+
+    volumes:
+      - C:/docker/nginx/data:/data
+      - C:/docker/nginx/letsencrypt:/etc/letsencrypt
+
+    environment:
+      NODE_ENV: production
