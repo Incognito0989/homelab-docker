@@ -1,0 +1,43 @@
+{
+  "annotations": {
+    "list": []
+  },
+  "panels": [
+    {
+      "type": "graph",
+      "title": "CPU Usage",
+      "targets": [
+        {
+          "expr": "100 - (avg by(instance)(irate(node_cpu_seconds_total{mode=\"idle\"}[5m])) * 100)",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "gridPos": {"x":0,"y":0,"w":12,"h":8}
+    },
+    {
+      "type": "graph",
+      "title": "Memory Usage",
+      "targets": [
+        {
+          "expr": "(node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes) / node_memory_MemTotal_bytes * 100",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "gridPos": {"x":12,"y":0,"w":12,"h":8}
+    },
+    {
+      "type": "graph",
+      "title": "Disk Usage",
+      "targets": [
+        {
+          "expr": "(node_filesystem_size_bytes{fstype!=\"tmpfs\"} - node_filesystem_free_bytes{fstype!=\"tmpfs\"}) / node_filesystem_size_bytes{fstype!=\"tmpfs\"} * 100",
+          "legendFormat": "{{instance}}"
+        }
+      ],
+      "gridPos": {"x":0,"y":8,"w":24,"h":8}
+    }
+  ],
+  "schemaVersion": 30,
+  "title": "Basic Node Exporter Dashboard",
+  "version": 1
+}
